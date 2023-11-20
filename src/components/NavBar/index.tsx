@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
     Box,
@@ -28,7 +28,10 @@ export default function NavBar() {
     const { isOpen, onToggle } = useDisclosure()
 
     return (
-        <Box>
+        <Box
+        pos="sticky"
+        top="0"
+        >
             <Flex
                 bg={useColorModeValue('white', 'gray.800')}
                 color={useColorModeValue('gray.600', 'white')}
@@ -78,10 +81,10 @@ export default function NavBar() {
                         fontSize={'sm'}
                         fontWeight={600}
                         color={'white'}
-                        bg={'pink.400'}
+                        bg={'teal.400'}
                         href={'#'}
                         _hover={{
-                            bg: 'pink.300',
+                            bg: 'teal.300',
                         }}>
                         Sign Up
                     </Button>
