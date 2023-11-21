@@ -25,6 +25,7 @@ import {
 import DarkModeSwitcher from '../DarkModeToggle'
 
 export default function NavBar() {
+    const linkHoverColor = useColorModeValue('gray.800', 'white')
     const { isOpen, onToggle } = useDisclosure()
 
     return (
@@ -54,12 +55,20 @@ export default function NavBar() {
                     />
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-                    <Text
+                    <Box
+                        as="a"
+                        href={'/'}
+                        fontSize={'md'}
+                        fontWeight={500}
+                        _hover={{
+                            textDecoration: 'none',
+                            color: linkHoverColor,
+                        }}
                         textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                         fontFamily={'heading'}
                         color={useColorModeValue('gray.800', 'white')}>
                         Logo
-                    </Text>
+                    </Box>
 
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />
@@ -248,19 +257,8 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
     {
-        label: 'Inspiration',
-        children: [
-            {
-                label: 'Explore Design Work',
-                subLabel: 'Trending Design to inspire you',
-                href: '#',
-            },
-            {
-                label: 'New & Noteworthy',
-                subLabel: 'Up-and-coming Designers',
-                href: '#',
-            },
-        ],
+        label: 'New Post',
+        href: '/new-post'
     },
     {
         label: 'Find Work',
